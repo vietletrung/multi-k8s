@@ -16,10 +16,8 @@ before_install:
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker build -t letrungviet/react-test -f ./client/Dockerfile.dev ./client
-
 script:
   - docker run -e CI=true letrungviet/react-test npm test
-
 deploy:
   provider: script
   script: bash ./deploy.sh
