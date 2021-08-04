@@ -15,6 +15,7 @@ before_install:
   - gcloud config set compute/zone asia-southeast1-a
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
   - docker build -t letrungviet/react-test -f ./client/Dockerfile.dev ./client
 
 script:
